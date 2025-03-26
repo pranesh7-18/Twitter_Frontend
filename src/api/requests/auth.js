@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 export const signup = (data) => {
   return axios
-    .post(url.SIGN_UP, data)
+    .post(url.SIGN_UP, data, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -13,9 +13,10 @@ export const signup = (data) => {
       return err.response;
     });
 };
+
 export const signin = (data) => {
   return axios
-    .post(url.SIGN_IN, data)
+    .post(url.SIGN_IN, data, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -23,9 +24,10 @@ export const signin = (data) => {
       return err.response;
     });
 };
+
 export const signout = () => {
   return axios
-    .post(url.SIGN_OUT)
+    .post(url.SIGN_OUT, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })

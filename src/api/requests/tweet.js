@@ -1,10 +1,11 @@
 import * as url from "../urls";
 import axios from "axios";
+
 axios.defaults.withCredentials = true;
 
 export const newTweet = (data) => {
   return axios
-    .post(url.NEW_TWEET, data)
+    .post(url.NEW_TWEET, data, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -15,7 +16,7 @@ export const newTweet = (data) => {
 
 export const editTweet = (data, tweetId) => {
   return axios
-    .patch(url.EDIT_TWEET + tweetId, data)
+    .patch(url.EDIT_TWEET + tweetId, data, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -26,7 +27,7 @@ export const editTweet = (data, tweetId) => {
 
 export const deleteTweet = (tweetId) => {
   return axios
-    .delete(url.DELETE_TWEET + tweetId)
+    .delete(url.DELETE_TWEET + tweetId, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -37,7 +38,7 @@ export const deleteTweet = (tweetId) => {
 
 export const likeTweet = (tweetId) => {
   return axios
-    .post(url.LIKE_TWEET + tweetId)
+    .post(url.LIKE_TWEET + tweetId, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -45,9 +46,10 @@ export const likeTweet = (tweetId) => {
       return err.response;
     });
 };
+
 export const unlikeTweet = (tweetId) => {
   return axios
-    .patch(url.UNLIKE_TWEET + tweetId)
+    .patch(url.UNLIKE_TWEET + tweetId, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -58,9 +60,7 @@ export const unlikeTweet = (tweetId) => {
 
 export const newReply = (data, tweetId) => {
   return axios
-    .post(url.NEW_REPLY + tweetId, {
-      body: data,
-    })
+    .post(url.NEW_REPLY + tweetId, { body: data }, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -71,7 +71,7 @@ export const newReply = (data, tweetId) => {
 
 export const getAllTweets = async (page) => {
   return await axios
-    .get(url.GET_ALL_TWEETS + page)
+    .get(url.GET_ALL_TWEETS + page, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -82,7 +82,7 @@ export const getAllTweets = async (page) => {
 
 export const getFollowingTweets = (page) => {
   return axios
-    .get(url.GET_FOLLOWING_TWEETS + page)
+    .get(url.GET_FOLLOWING_TWEETS + page, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -90,9 +90,10 @@ export const getFollowingTweets = (page) => {
       return err.response;
     });
 };
+
 export const getTweetById = (tweetId) => {
   return axios
-    .get(url.GET_TWEET_ID + tweetId)
+    .get(url.GET_TWEET_ID + tweetId, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -100,9 +101,10 @@ export const getTweetById = (tweetId) => {
       return err.response;
     });
 };
+
 export const getProfileTweets = (username) => {
   return axios
-    .get(url.GET_PROFILE_TWEETS + username)
+    .get(url.GET_PROFILE_TWEETS + username, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -113,7 +115,7 @@ export const getProfileTweets = (username) => {
 
 export const retweet = (tweetId) => {
   return axios
-    .post(url.RETWEET + tweetId)
+    .post(url.RETWEET + tweetId, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })

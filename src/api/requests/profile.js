@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 export const getAllProfiles = () => {
   return axios
-    .get(url.GET_ALL_PROFILES)
+    .get(url.GET_ALL_PROFILES, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -16,7 +16,7 @@ export const getAllProfiles = () => {
 
 export const getCurrentProfile = () => {
   return axios
-    .get(url.GET_CURRENT_PROFILE)
+    .get(url.GET_CURRENT_PROFILE, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -27,7 +27,7 @@ export const getCurrentProfile = () => {
 
 export const getProfileByUsername = (username) => {
   return axios
-    .get(url.GET_PROFILE_USERNAME + username)
+    .get(url.GET_PROFILE_USERNAME + username, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -38,7 +38,7 @@ export const getProfileByUsername = (username) => {
 
 export const followByUsername = (username) => {
   return axios
-    .post(url.FOLLOW_NAME + username)
+    .post(url.FOLLOW_NAME + username, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -49,7 +49,7 @@ export const followByUsername = (username) => {
 
 export const unFollowUsername = (username) => {
   return axios
-    .patch(url.UNFOLLOW_NAME + username)
+    .patch(url.UNFOLLOW_NAME + username, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -61,7 +61,7 @@ export const unFollowUsername = (username) => {
 export const uploadAvatar = (avatar) => {
   console.log(avatar);
   return axios
-    .post(url.UPLOAD_AVATAR, avatar)
+    .post(url.UPLOAD_AVATAR, avatar, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -69,9 +69,10 @@ export const uploadAvatar = (avatar) => {
       return err.response;
     });
 };
+
 export const updateProfile = (formData) => {
   return axios
-    .post(url.UPDATE_PROFILE, formData)
+    .post(url.UPDATE_PROFILE, formData, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -82,7 +83,7 @@ export const updateProfile = (formData) => {
 
 export const getBookmarks = () => {
   return axios
-    .get(url.GET_BOOKMARK)
+    .get(url.GET_BOOKMARK, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -93,7 +94,7 @@ export const getBookmarks = () => {
 
 export const addBookmark = (id) => {
   return axios
-    .post(url.ADD_BOOKMARK + id)
+    .post(url.ADD_BOOKMARK + id, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })
@@ -101,9 +102,10 @@ export const addBookmark = (id) => {
       return err.response;
     });
 };
+
 export const removeBookmark = (id) => {
   return axios
-    .patch(url.REMOVE_BOOKMARK + id)
+    .patch(url.REMOVE_BOOKMARK + id, {}, { withCredentials: true })
     .then((result) => {
       return result;
     })
