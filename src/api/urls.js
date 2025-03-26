@@ -1,4 +1,4 @@
-const URL = "http://localhost:5000";
+const URL = "https://twitter-server-i7fl.onrender.com";
 
 // PROFILE ENDPOINTS //
 // ------------------//
